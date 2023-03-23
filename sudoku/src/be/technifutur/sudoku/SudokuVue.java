@@ -1,6 +1,6 @@
 package be.technifutur.sudoku;
 
 public interface SudokuVue {
-    String getScreen();
+    String getScreen() throws SudokuPositionException;
     SudokuModel getModel();
 }

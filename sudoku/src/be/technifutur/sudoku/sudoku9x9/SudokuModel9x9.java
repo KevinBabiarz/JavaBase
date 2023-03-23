@@ -1,8 +1,9 @@
 package be.technifutur.sudoku.sudoku9x9;
 
+import be.technifutur.sudoku.AbstractSudokuModel;
 import be.technifutur.sudoku.SudokuModel;
 
-public class SudokuModel9x9 implements SudokuModel {
+public class SudokuModel9x9 extends AbstractSudokuModel implements SudokuModel {
 
     private char[][] grille = new char[getMaxLine()][getMaxColumn()];
     static final char[] carPossible = {'1','2','3','4','5','6','7','8','9'};

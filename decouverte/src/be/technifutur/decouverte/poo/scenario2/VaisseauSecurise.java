@@ -26,6 +26,11 @@ public class VaisseauSecurise extends Object{
         }
 
     }
+
+    public VaisseauSecurise(int maxMissile){
+        this(maxMissile,"Vaisseau inconnu");
+    }
+
     //methode de classe
     public static int getNbEnVol(){
         return VaisseauSecurise.nbEnVol;

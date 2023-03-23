@@ -1,5 +1,6 @@
 package be.technifutur.sudoku.utils;
 
+/* Contient les possibilités de valeurs */
 public class ValueSet {
 
     private String name;

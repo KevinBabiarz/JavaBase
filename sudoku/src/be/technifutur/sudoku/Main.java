@@ -5,7 +5,7 @@ import be.technifutur.sudoku.sudoku4x4.SudokuVue4x4;
 import be.technifutur.sudoku.sudoku4x4.ModelFactory4x4;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SudokuException, DoublonException{
         System.out.println("Sudoku");
 
         //SudokuModel4x4 model =  new SudokuModel4x4();

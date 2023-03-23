@@ -15,7 +15,7 @@ public interface SudokuModel {
      * @param column la colonne
      * @return la valeur
      */
-    char getValue(int line, int column);
+    char getValue(int line, int column) throws SudokuPositionException;
 
     /**
      * Modifie la valeur se trouvant à la position line, column.
@@ -23,7 +23,7 @@ public interface SudokuModel {
      * @param column la colonne
      * @param value la valeur
      */
-    void setValue(int line, int column, char value);
+    void setValue(int line, int column, char value) throws SudokuException, SudokuPositionException, SudokuLockException, DoublonException;
 
     /**
      * Retourne le nombre de lignes de la grille du sudoku.
@@ -53,5 +53,10 @@ public interface SudokuModel {
     boolean isValueValid(char value);
 
     boolean isEmpty(int l, int c);
+
+    public void clearCell(int lineNumber, int columnNumber) throws SudokuException;
+
+    public void initGameBoard();
+    public void lock() throws SudokuLockException;
 
 }

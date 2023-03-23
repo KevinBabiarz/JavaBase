@@ -1,5 +1,6 @@
 package be.technifutur.sudoku.sudoku4x4;
 
+import be.technifutur.sudoku.SudokuException;
 import be.technifutur.sudoku.SudokuModel;
 import be.technifutur.sudoku.SudokuModelFactory;
 import be.technifutur.sudoku.SudokuVue;
@@ -10,7 +11,7 @@ import java.util.Scanner;
 
 public class ModelFactory4x4 implements SudokuModelFactory {
     @Override
-    public SudokuModel4x4 getModel(String filename) {
+    public SudokuModel4x4 getModel(String filename) throws SudokuException {
         int ligne = 0;
         int col = 0;
         SudokuModel4x4 model4x4 = new SudokuModel4x4();
@@ -40,7 +41,7 @@ public class ModelFactory4x4 implements SudokuModelFactory {
     }
 
     @Override
-    public SudokuVue4x4 getVue(String filename) {
+    public SudokuVue4x4 getVue(String filename) throws SudokuException {
 
         SudokuModel4x4 model = this.getModel(filename);
         SudokuVue4x4 vue4x4 = new SudokuVue4x4(model);

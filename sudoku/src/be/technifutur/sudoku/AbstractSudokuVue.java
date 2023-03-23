@@ -12,7 +12,7 @@ public abstract class AbstractSudokuVue {
         this.model = model;
     }
 
-    public String getScreen() {
+    public String getScreen() throws SudokuPositionException {
         Character[] val = new Character[model.cellCount()];
         int pos = 0;
         for (int l = 0; l < model.getMaxLine(); l++) {

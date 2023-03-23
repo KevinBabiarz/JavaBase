@@ -1,9 +1,9 @@
 package be.technifutur.sudoku;
 
 public interface SudokuModelFactory {
-    SudokuModel getModel(String filename);
+    SudokuModel getModel(String filename) throws SudokuException;
 
-    SudokuVue getVue(String filename);
+    SudokuVue getVue(String filename) throws SudokuException;
 }
 
 
