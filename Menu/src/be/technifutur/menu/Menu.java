@@ -11,15 +11,30 @@ public class Menu extends Item{
 
     private MenuVue vue;
 
+    private boolean finish = false;
+
     public Menu(String libel, MenuVue vue){
         super(libel);
         Objects.requireNonNull(vue);
         this.vue = vue;
     }
-    public MenuVue getVue() {
+
+    public MenuVue getVue(){
+        return null;
+    }
+    public MenuVue setVue() {
         Objects.requireNonNull(vue);
         return vue;
     }
+
+    public boolean isFinish() {
+        return finish;
+    }
+
+    public void setFinish(boolean finish) {
+        this.finish = finish;
+    }
+
     public Item addItem(String key, Item value) {
         return itemMap.put(key, value);
     }

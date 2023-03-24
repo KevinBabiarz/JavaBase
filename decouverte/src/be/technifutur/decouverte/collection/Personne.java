@@ -1,12 +1,13 @@
 package be.technifutur.decouverte.collection;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Objects;
 
 import static java.time.LocalTime.now;
 
-public class Personne /*implements Comparable<Personne>*/ {
+public class Personne implements Serializable /*implements Comparable<Personne>*/ {
     private String nom;
     private String prenom;
     private LocalDate naissance;
