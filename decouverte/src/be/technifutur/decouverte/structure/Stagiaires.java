@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Stagiaires {
     public static void main(String[] args) {
-        Personne[] stagiaires = new Personne[1];
+        Personne[] stagiaires = new Personne[5];
         Scanner scan = new Scanner(System.in);
 
         for (int i = 0; i < stagiaires.length; i++){
