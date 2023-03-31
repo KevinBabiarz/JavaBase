@@ -6,6 +6,9 @@ import be.technifutur.labo1.Menu.*;
 public class Main {
     public static void main(String[] args) {
 
+        TableauParticipants.createList();
+        TableauActivites.createList();
+
         //Menu menuPrincipal = getMenu();
         MenuBuilder menuBuilder = new MenuBuilder();
         Menu menuPrincipal = menuBuilder.start("Menu Principal");
@@ -51,11 +54,12 @@ public class Main {
     }*/
 
     private static Runnable getOption5() {
-        return new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("Vous avez choisi l'option 5");
-            }
+        return () -> {
+               GestionActivites ga = new GestionActivites();
+               ga.ajoutActivite().run();
+
+               TableauActivites.afficheList();
+                //ga.afficheList();
         };
     }
 
@@ -65,13 +69,18 @@ public class Main {
     }
 
     private static Runnable getOption3() {
-        return () -> System.out.println("Vous avez choisi l'option 3");
+        return () -> {
+
+        };
 
     }
 
     private static Runnable getOption2() {
-        return () -> System.out.println("Vous avez choisi l'option 2");
+        return () -> {
+            TableauParticipants.afficheList();
+        };
     }
+
 
     private static  Runnable getOption1() {
         return() -> {
