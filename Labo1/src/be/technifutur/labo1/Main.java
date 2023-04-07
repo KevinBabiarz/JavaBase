@@ -4,10 +4,13 @@ package be.technifutur.labo1;
 import be.technifutur.labo1.Menu.*;
 
 public class Main {
+
+    static TableauActivites tabActi = new TableauActivites();
+    static TableauParticipants tabParticip = new TableauParticipants();
     public static void main(String[] args) {
 
-        TableauParticipants.createList();
-        TableauActivites.createList();
+        tabParticip.createList();
+        tabActi.createList();
 
         //Menu menuPrincipal = getMenu();
         MenuBuilder menuBuilder = new MenuBuilder();
@@ -19,10 +22,20 @@ public class Main {
                 menuBuilder.addItem("a", "Liste générale des participants", getOption2());
                 menuBuilder.addItem("b", "Horaires des activités", getOption3());
                 menuBuilder.addItem("c", "Liste des participants par activité", getOption4());
+                menuBuilder.addItem("r", "Retour", ()->menuPrincipal.execute());
+
                 //menuBuilder.addItem("q", "Quitter", () -> menuPrincipal.setFinish(true));
+               menuBuilder.endMenu();
+            }
+            menuBuilder.startMenu("c", "Gérer activités");
+            {
+                menuBuilder.addItem("a", "Ajouter des activités", getOption5());
+                menuBuilder.addItem("b", "Modifier activités", getOption6());
+                menuBuilder.addItem("r", "Retour", ()->menuPrincipal.execute());
+
                 menuBuilder.endMenu();
             }
-            menuBuilder.addItem("c", "Gestion des activités", getOption5());
+
             menuBuilder.addItem("q", "Quitter", () -> menuPrincipal.setFinish(true));
 
         }
@@ -52,32 +65,48 @@ public class Main {
 
         return menuPrincipal;
     }*/
+    private static Runnable getOption6() {
+        return () -> {
+            tabActi.afficheListOption();
+            //TableauActivites.saisie();
+            String idActivite = tabActi.saisieActivite();
+            String idModif = tabActi.choixModification();
+//            String contenuModif = TableauActivites.contenuModification();
+            //System.out.println(TableauActivites.saisieActivite());
+            //System.out.println(TableauActivites.choixModification());
+            //System.out.println(TableauActivites.contenuModification());
+            tabActi.modifActivite(idActivite,idModif);
 
+        };
+    }
     private static Runnable getOption5() {
         return () -> {
                GestionActivites ga = new GestionActivites();
                ga.ajoutActivite().run();
 
-               TableauActivites.afficheList();
-                //ga.afficheList();
+               tabActi.afficheList();
         };
     }
 
     private static Runnable getOption4() {
-        return () -> System.out.println("Vous avez choisi l'option 4");
+        return () -> {
+            //TableauActivites ta = new TableauActivites();
+            tabActi.afficheListOption();
+            tabActi.getNomParticipant(tabActi.saisieActivite());
+        };
 
     }
 
     private static Runnable getOption3() {
         return () -> {
-
+            tabActi.afficheList();
         };
 
     }
 
     private static Runnable getOption2() {
         return () -> {
-            TableauParticipants.afficheList();
+            tabParticip.afficheList();
         };
     }
 

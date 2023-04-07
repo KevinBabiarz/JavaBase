@@ -5,24 +5,22 @@ import java.util.ArrayList;
 public class TableauParticipants {
 
     static ArrayList<Personne> listeParticipants = new ArrayList();
-
     //
-
-    public static void createList(){
+    public void createList(){
 
         Personne personneTest = new Personne("Bab", "kev", "tennis");
         listeParticipants.add(personneTest);
         listeParticipants.add(new Personne("Dch", "Ad", "foot"));
-        listeParticipants.add(new Personne("Ta", "reme", "en short"));
+        listeParticipants.add(new Personne("Herve", "Dumont", "basket"));
+        listeParticipants.add(new Personne("Dupont de ligones", "Xavier", "foot"));
     }
 
-    public static void push(Personne personne){
+    public void push(Personne personne){
 
         listeParticipants.add(personne);
-
     }
 
-    public static void afficheList(){
+    public void afficheList(){
 
         for (Personne personnes : listeParticipants) {
             System.out.printf("| %s | %s | %s | %n",

@@ -37,4 +37,13 @@ public class Activites {
     public void setFin(LocalDateTime fin) {
         this.fin = fin;
     }
+
+    @Override
+    public String toString() {
+        return "Activites{" +
+                "nom='" + nom + '\'' +
+                ", debut=" + debut +
+                ", fin=" + fin +
+                '}';
+    }
 }

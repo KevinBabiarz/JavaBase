@@ -6,39 +6,52 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class EncodageClient {
     ArrayList<Personne> personnesList = new ArrayList<>();
+    TableauParticipants tabParticip = new TableauParticipants();
 
     //Entrée des guest
 
     public Runnable encodage()  {
         return () -> {
-            boolean another = true;
-            char choix;
-            while (another) {
+            boolean retry = true;
 
-                String nom;
-                String prenom;
-                String club;
+            while(retry) {
+                try {
+                    boolean another = true;
+                    char choix;
+                    while (another) {
 
-                Scanner scan = new Scanner(System.in);
+                        String nom;
+                        String prenom;
+                        String club;
 
-                System.out.println("Nom: ");
-                nom = scan.nextLine();
-                System.out.println("Prenom: ");
-                prenom = scan.nextLine();
-                System.out.println("Club: ");
-                club = scan.nextLine();
+                        Scanner scan = new Scanner(System.in);
 
-                Personne personne = new Personne(nom, prenom, club);
+                        do {
+                            System.out.println("Nom: ");
+                            nom = scan.nextLine();
+                            System.out.println("Prenom: ");
+                            prenom = scan.nextLine();
+                        }while(prenom == null || nom == null || prenom.isBlank() || nom.isBlank());
 
-                TableauParticipants.push(personne);
-                personnesList.add(personne);
+                        System.out.println("Club: ");
+                        club = scan.nextLine();
 
-                System.out.println("Do you want to insert another guest? Y/N");
-                choix = scan.nextLine().charAt(0);
-                if (choix == 'n') {
-                    another = false;
+                        Personne personne = new Personne(nom, prenom, club);
+
+                        tabParticip.push(personne);
+                        personnesList.add(personne);
+
+                        System.out.println("Do you want to insert another guest? Y/N");
+                        choix = scan.nextLine().charAt(0);
+                        if (choix == 'n') {
+                            another = false;
+                        }
+                        retry = false;
+
+                    }
+                } catch (StringIndexOutOfBoundsException e) {
+                    System.err.println("Entrez vos valeurs correctement");
                 }
-
             }
         };
     }

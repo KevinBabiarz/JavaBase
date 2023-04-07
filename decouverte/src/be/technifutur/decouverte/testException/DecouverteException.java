@@ -20,7 +20,7 @@ public class DecouverteException {
             fct2(i);
         }catch (IllegalArgumentException e){
             System.out.println(e.getMessage());
-            e.printStackTrace();
+            //e.printStackTrace();
         }catch (RuntimeException e){
             System.out.println("C'est un runtime");
             System.out.println(e.getMessage());
