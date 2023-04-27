@@ -8,6 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+// Sert à communiquer avec la DB, envoyer les requetes,...
 public class BookRepositoryImpl implements BookRepository{
 
     private Book buildBook(ResultSet rs){
@@ -35,11 +36,11 @@ public class BookRepositoryImpl implements BookRepository{
                 throw new BookNotFoundException();
             }
             conn.close();
+            return buildBook(rs);
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return  null;
     }
 
     @Override

@@ -7,6 +7,7 @@ import org.example.repositories.BookRepositoryImpl;
 
 import java.util.List;
 
+// Toute la logique, les methodes qui vont servir.
 public class BookServiceImpl {
 
     private BookRepository bookRepository;
